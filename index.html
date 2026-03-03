@@ -1,28 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Electronics Store</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/png" href="image/Gear.png">
-    <link href="css/style.css" rel="stylesheet">
+<meta charset="UTF-8">
+<title>Electronics Store</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/png" href="image/Gear.png">
+<link href="css/style.css" rel="stylesheet">
 </head>
 <body>
 <header>Electronics Store</header>
 <nav>
-    <a href="#" id="home-btn">Home</a>
-    <a href="#" id="catalog-btn">Catalog</a>
-    <a href="#" id="cart-btn">Cart</a>
-    <a href="#" id="contacts-btn">Contacts</a>
+<a href="#" id="home-btn">Home</a>
+<a href="#" id="catalog-btn">Catalog</a>
+<a href="#" id="cart-btn">Cart</a>
+<a href="#" id="contacts-btn">Contacts</a>
 </nav>
-<div class="container">
+<div class="page-wrapper">
+  <aside class="leaderboard">
+    <h2>🏆 Leaderboard</h2>
+    <p class="lb-hint"><!-- Чтобы добавить нового покупателя — добавь объект в массив leaders в index.js --></p>
+    <ol id="lb-list"></ol>
+  </aside>
+  <div class="container">
     <h2 id="catalog">Products</h2>
     <div class="products" id="products"></div>
     <div class="cart" id="cart-section">
-        <h2>Cart</h2>
-        <div id="cart-items">Cart is empty.</div>
-        <div class="cart-total" id="cart-total"></div>
+      <h2>Cart</h2>
+      <div id="cart-items">Cart is empty.</div>
+      <div class="cart-total" id="cart-total"></div>
     </div>
+  </div>
 </div>
 <script src="js/index.js"></script>
 </body>
