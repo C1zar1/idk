@@ -1,6 +1,6 @@
-// ✅ Список лидеров. Чтобы добавить нового — добавь объект в конец массива:
-// { name: "Имя", spent: сумма_в_евро }
-// Список автоматически сортируется по убыванию суммы.
+// ✅ Данные лидеров — фейковые.
+// Чтобы добавить нового: { name: "Имя", spent: сумма }
+// Список сам отсортируется по убыванию.
 let leaders = [
     { name: "Alex K.",   spent: 15800 },
     { name: "Maria S.",  spent: 12400 },
@@ -8,19 +8,6 @@ let leaders = [
     { name: "Olga T.",   spent: 7300  },
     { name: "Dmytro V.", spent: 4100  },
 ];
-
-function showLeaderboard() {
-    // Сортируем по убыванию потраченной суммы
-    let sorted = [...leaders].sort((a, b) => b.spent - a.spent);
-    let out = '';
-    sorted.forEach(leader => {
-        out += `<li>
-                  <span class="lb-name">${leader.name}</span>
-                  <span class="lb-amount">${leader.spent.toLocaleString()} €</span>
-                </li>`;
-    });
-    document.getElementById('lb-list').innerHTML = out;
-}
 
 let items = [
     {name: "Apple iPhone 14 Pro Max 128GB Silver", price: 1000, img: "image/Phone.png"},
@@ -31,7 +18,26 @@ let items = [
     {name: "Lenovo LOQ 15ARP9 (83JC00K6RA) Luna Gray Gaming Laptop", price: 15000, img: "image/Gaming_laptop2.jpg"},
     {name: "Sonic😰😰😰😰😰😰", price: 1500000000000000000000, img: "image/Sonic.jpg"}
 ];
+
 let cart = [];
+
+function showLeaderboard() {
+    let list = document.getElementById('lb-list');
+    if (!list) return; // защита если элемент не найден
+
+    let sorted = [...leaders].sort((a, b) => b.spent - a.spent);
+    let medals = ["🥇", "🥈", "🥉"]; // медали для топ-3
+
+    let out = '';
+    sorted.forEach((leader, i) => {
+        let medal = medals[i] || "▪️";
+        out += `<li>
+                  <span class="lb-name">${medal} ${leader.name}</span>
+                  <span class="lb-amount">${leader.spent.toLocaleString()} €</span>
+                </li>`;
+    });
+    list.innerHTML = out;
+}
 
 function showProducts() {
     let out = '';
@@ -72,7 +78,8 @@ function updateCart() {
     cart.forEach((item, i) => {
         out += `<div class="cart-item">
                     <span>${item.name} x${item.qty}</span>
-                    <span>${item.price * item.qty} € <button class="remove-btn" onclick="removeFromCart(${i})">Remove</button></span>
+                    <span>${item.price * item.qty} €
+                    <button class="remove-btn" onclick="removeFromCart(${i})">Remove</button></span>
                 </div>`;
     });
     cartItems.innerHTML = out;
@@ -80,23 +87,26 @@ function updateCart() {
     document.getElementById('cart-total').innerHTML = "Total: " + total + " €";
 }
 
-showProducts();
-updateCart();
-showLeaderboard(); // ✅ Запускаем рендер лидерборда
+// ✅ Всё запускается после загрузки DOM — это и было причиной бага
+document.addEventListener("DOMContentLoaded", function () {
+    showProducts();
+    updateCart();
+    showLeaderboard();
 
-document.getElementById("catalog-btn").onclick = function(e) {
-    e.preventDefault();
-    document.getElementById("catalog").scrollIntoView({behavior: "smooth"});
-};
-document.getElementById("cart-btn").onclick = function(e) {
-    e.preventDefault();
-    document.getElementById("cart-section").scrollIntoView({behavior: "smooth"});
-};
-document.getElementById("home-btn").onclick = function(e) {
-    e.preventDefault();
-    window.scrollTo({top: 0, behavior: "smooth"});
-};
-document.getElementById("contacts-btn").onclick = function(e) {
-    e.preventDefault();
-    alert("Contacts: +371 XX XXX XXX");
-};
+    document.getElementById("catalog-btn").onclick = function(e) {
+        e.preventDefault();
+        document.getElementById("catalog").scrollIntoView({behavior: "smooth"});
+    };
+    document.getElementById("cart-btn").onclick = function(e) {
+        e.preventDefault();
+        document.getElementById("cart-section").scrollIntoView({behavior: "smooth"});
+    };
+    document.getElementById("home-btn").onclick = function(e) {
+        e.preventDefault();
+        window.scrollTo({top: 0, behavior: "smooth"});
+    };
+    document.getElementById("contacts-btn").onclick = function(e) {
+        e.preventDefault();
+        alert("Contacts: +371 XX XXX XXX");
+    };
+});
