@@ -4,10 +4,10 @@ body {
   background: #f4f7fc;
 }
 
-/* ✅ Изменён цвет хедера на чёрный */
+
 header {
-  background: #111111;       /* ← чёрный фон */
-  color: #ffffff;            /* ← белый текст */
+  background: #111111;      
+  color: #ffffff;          
   padding: 24px 0;
   text-align: center;
   font-size: 2em;
@@ -34,7 +34,7 @@ nav a:hover {
   color: #a3e1ff;
 }
 
-/* ✅ Враппер: лидерборд слева, контент справа */
+
 .page-wrapper {
   display: flex;
   align-items: flex-start;
@@ -86,7 +86,6 @@ nav a:hover {
   color: #396afc;
 }
 
-/* ✅ Иконки мест */
 #lb-list li:nth-child(1)::marker { content: "🥇 "; }
 #lb-list li:nth-child(2)::marker { content: "🥈 "; }
 #lb-list li:nth-child(3)::marker { content: "🥉 "; }
@@ -201,4 +200,5 @@ h2 {
   .products { flex-direction: column; }
   .container { padding: 18px 6px; }
 }
+
 
