@@ -4,7 +4,7 @@ let items = [
     {name: "Philips 5000 blender", price: 110, img: "image/blender.png"},
     {name: "keyboard A4Tech Bloody S98 Naraka BLMS USB Black/White/Red", price: 100, img: "image/KeyBoard.png"},
     {name: "ASUS TUF Gaming A16 (2025) FA608UM-RV015 (90NR0KV1-M00880)", price: 1500, img: "image/Gaming_laptop.png"},
-    {name: "ASUS TUF Gaming A16 (2025) FA608UM-RV015 (90NR0KV1-M00880)", price: 1500, img: "image/Gaming_laptop.png"}
+    {name: "Lenovo LOQ 15ARP9 (83JC00K6RA) Luna Gray Gaming Laptop", price: 15000, img: "image/Gaming_laptop2.png"}
 ];
 let cart = [];
 function showProducts() {
