@@ -4,7 +4,7 @@ let items = [
     {name: "Philips 5000 blender", price: 110, img: "image/blender.png"},
     {name: "keyboard A4Tech Bloody S98 Naraka BLMS USB Black/White/Red", price: 100, img: "image/KeyBoard.png"},
     {name: "ASUS TUF Gaming A16 (2025) FA608UM-RV015 (90NR0KV1-M00880)", price: 1500, img: "image/Gaming_laptop.png"},
-    {name: "Pidors", price: 1500, img: "image/KeyBoard.png""}
+    {name: "Pidors", price: 150, img: "image/KeyBoard.png""}
 ];
 let cart = [];
 function showProducts() {
