@@ -6,14 +6,15 @@ body {
 
 /* ✅ Изменён цвет хедера на чёрный */
 header {
-  background: #111111;
-  color: #ffffff;
+  background: #111111;       /* ← чёрный фон */
+  color: #ffffff;            /* ← белый текст */
   padding: 24px 0;
   text-align: center;
   font-size: 2em;
   letter-spacing: 2px;
   font-weight: 600;
 }
+
 
 nav {
   background: #222;
@@ -200,3 +201,4 @@ h2 {
   .products { flex-direction: column; }
   .container { padding: 18px 6px; }
 }
+
