@@ -1,6 +1,3 @@
-// ✅ Данные лидеров — фейковые.
-// Чтобы добавить нового: { name: "Имя", spent: сумма }
-// Список сам отсортируется по убыванию.
 let leaders = [
     { name: "Alex",   spent: 15800 },
     { name: "BR0000000",  spent: 12400 },
@@ -86,7 +83,6 @@ function updateCart() {
     document.getElementById('cart-total').innerHTML = "Total: " + total + " €";
 }
 
-// ✅ Всё запускается после загрузки DOM — это и было причиной бага
 document.addEventListener("DOMContentLoaded", function () {
     showProducts();
     updateCart();
