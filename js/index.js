@@ -1,3 +1,27 @@
+// ✅ Список лидеров. Чтобы добавить нового — добавь объект в конец массива:
+// { name: "Имя", spent: сумма_в_евро }
+// Список автоматически сортируется по убыванию суммы.
+let leaders = [
+    { name: "Alex K.",   spent: 15800 },
+    { name: "Maria S.",  spent: 12400 },
+    { name: "Ivan P.",   spent: 9750  },
+    { name: "Olga T.",   spent: 7300  },
+    { name: "Dmytro V.", spent: 4100  },
+];
+
+function showLeaderboard() {
+    // Сортируем по убыванию потраченной суммы
+    let sorted = [...leaders].sort((a, b) => b.spent - a.spent);
+    let out = '';
+    sorted.forEach(leader => {
+        out += `<li>
+                  <span class="lb-name">${leader.name}</span>
+                  <span class="lb-amount">${leader.spent.toLocaleString()} €</span>
+                </li>`;
+    });
+    document.getElementById('lb-list').innerHTML = out;
+}
+
 let items = [
     {name: "Apple iPhone 14 Pro Max 128GB Silver", price: 1000, img: "image/Phone.png"},
     {name: "Marshall Major IV Bluetooth Black", price: 150, img: "image/headphones.png"},
@@ -8,6 +32,7 @@ let items = [
     {name: "Sonic😰😰😰😰😰😰", price: 1500000000000000000000, img: "image/Sonic.jpg"}
 ];
 let cart = [];
+
 function showProducts() {
     let out = '';
     items.forEach((item, i) => {
@@ -20,6 +45,7 @@ function showProducts() {
     });
     document.getElementById('products').innerHTML = out;
 }
+
 function addToCart(i) {
     let exist = cart.find(x => x.name === items[i].name);
     if (exist) {
@@ -29,10 +55,12 @@ function addToCart(i) {
     }
     updateCart();
 }
+
 function removeFromCart(i) {
     cart.splice(i, 1);
     updateCart();
 }
+
 function updateCart() {
     let cartItems = document.getElementById('cart-items');
     if (cart.length === 0) {
@@ -51,8 +79,11 @@ function updateCart() {
     let total = cart.reduce((acc, item) => acc + item.price * item.qty, 0);
     document.getElementById('cart-total').innerHTML = "Total: " + total + " €";
 }
+
 showProducts();
 updateCart();
+showLeaderboard(); // ✅ Запускаем рендер лидерборда
+
 document.getElementById("catalog-btn").onclick = function(e) {
     e.preventDefault();
     document.getElementById("catalog").scrollIntoView({behavior: "smooth"});
