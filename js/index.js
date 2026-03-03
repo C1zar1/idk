@@ -2,11 +2,10 @@
 // Чтобы добавить нового: { name: "Имя", spent: сумма }
 // Список сам отсортируется по убыванию.
 let leaders = [
-    { name: "Alex K.",   spent: 15800 },
-    { name: "Maria S.",  spent: 12400 },
-    { name: "Ivan P.",   spent: 9750  },
-    { name: "Olga T.",   spent: 7300  },
-    { name: "Dmytro V.", spent: 4100  },
+    { name: "Alex",   spent: 15800 },
+    { name: "BR0000000",  spent: 12400 },
+    { name: "Solvibe",   spent: 1500000000000000000000 },
+    { name: "4hyz",   spent: 1}
 ];
 
 let items = [
